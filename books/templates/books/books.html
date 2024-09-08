@@ -1,6 +1,32 @@
-{% extends 'main.html' %}
 
+<style>
+    table, th, td {
+      border:1px solid rgb(10, 10, 10);
+    }
+    </style>
+{% extends 'main.html' %}
 {% block content %}
 <h1>Books page</h1>
-
+<table style="width:70%">
+    <tr>
+        <th> Title</th>
+        <th> Description</th>
+        <th> owner</th>
+        <th> tags</th>
+        <th> View </th>
+        <th> Edit</th>
+        <th> Delete</th>
+    </tr>
+    {% for book in books %}
+        <tr>
+            <td>{{book.title}}</td>
+            <td>{{book.description}}</td>
+            <td>{{book.owner}}</td>
+            <td>{{book.tags.all}}</td>
+            <td>view</td>
+            <td>Edit</td>
+            <td>Delete</td>
+        </tr>
+    {% endfor %}
+</table>
 {% endblock  %}

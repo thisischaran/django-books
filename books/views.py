@@ -1,7 +1,12 @@
 from django.shortcuts import render
+from .models import bookdetails
+
+
 
 # Create your views here.
 
 
 def bookhomepage(request):
-    return render(request,'books/books.html')
+    booklist = bookdetails.objects.all()
+    context = {"books":booklist}
+    return render(request,'books/books.html',context)
