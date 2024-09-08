@@ -3,4 +3,30 @@
 {% block content %}
 <h1>users page</h1>
 
+<form action="" method = "POST">
+        {% csrf_token %}
+
+        {% if messages %}
+                {% for msg in messages %}
+                    {{msg}}
+                {% endfor %}
+        {% endif %}
+
+        {% if form  %}
+            {% if login %}
+
+                {{form.as_p}}              
+               <input type="submit" value="login">
+               <p><a href=" {% url 'registeruser'  %}"> New to our website register Here? </a> </p>
+               
+            {% else %}
+                 {{form.as_p}}
+                 <input type="submit" value="Createuser">
+            {% endif  %}
+      
+        {% endif   %}
+
+</form>
+
+
 {% endblock  %}
